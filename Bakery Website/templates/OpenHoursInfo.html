@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Cronton Lane Bakery</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #d35400;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+{% include 'header.html' %}
+
+
+<div class="container">
+    <h2>Opening and closing hours</h2>
+    <p><bold>Monday</bold>, 09:00 - 15:00</p>
+    <p>Tuesday, 09:00 - 15:00</p>
+    <p>Wednesday, 09:00 - 15:00</p>
+    <p>Thursday, 09:00 - 15:00</p>
+    <p>Friday, 09:00 - 15:00</p>
+    <p>Saturday, 09:00 - 15:00</p>
+    <p>Sunday, Closed</p>
+</div>
+
+<div class="container">
+    <h2>Where to find us</h2>
+    <h3>12A Cronton Ln, Widnes, WA8 5AJ</h3>
+    <iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=-2.7415823936462402%2C53.38901536997465%2C-2.7380633354187016%2C53.39044380000254&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?#map=19/53.389730/-2.739823">View Larger Map</a></small>
+   
+</div>
+
+
+</body>
+</html>

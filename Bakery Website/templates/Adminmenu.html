@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Cronton Lane Bakery</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #d35400;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+{% include 'AdminHeader.html' %}
+
+{% if user %}
+<div class="container">
+    <h1>Welcome, {{ user }} to the Staff Menu!</h1>
+    <h2>Manage stock, and view orders from this account</h2>
+    <hr style="margin: 20px 0;">
+    <h3>Quick Stats</h3>
+    <p><strong>Total Revenue:</strong> £{{ total_revenue }}</p>
+    <p><strong>Active Orders:</strong> {{ active_orders }}</p>
+    <p><strong>Completed Orders:</strong> {{ completed_orders }}</p>
+</div>
+{% endif %}

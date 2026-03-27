@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Cronton Lane Bakery</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #d35400;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+{% include 'header.html' %}
+
+{% if user %}
+<div class="container">
+    <h1>Welcome, {{ user }} </h1>
+    <h2>Here's some freqently asked questions.</h2>
+
+    <p><strong>How do I pay?</strong></p>
+
+    <p>This site is a PREORDER webpage. This means we will recieve your order and prepare it however you have to come collect it and pay on site. This is mainly because online transactions are not readily available yet.</p>
+
+    <p><strong>Is Your food vegan/cruelty free?</strong></p>
+
+    <p>Our bakery supports ethical farming practices by only buying off fair trade farmers and animal cruelty-free farms. Many of our recipes are vegetarian however we have little available for vegans as we use milk and eggs in many of our products</p>
+
+    <p><strong>Do Widnes Vikings actually buy from here?</strong></p>
+
+    <p>Short answer is .. YES! Our bakery prides itself in high protein healthy recipes perfect for athletes. We mainly serve them on Home-game days though as apart from regular days.</p>
+
+    <p><strong>Why is your menu not relative to the in person menu?</strong></p>
+
+    <p>As this website is still newly developing not all recipes or custom orders are available yet. You can still order them by visiting in person first.</p>
+
+    <p><strong>Is your food worth the price?</strong></p>
+
+    <p>Whilst some recipes may seem expensive for what they traditionally are, we use high-quality ingrediants and preparation to make your food.</p>
+
+    <h2>We hope you enjoy our produce! </h2>
+</div>
+{% endif %}
+
+</body>
+</html>

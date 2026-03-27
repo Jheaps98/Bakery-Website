@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+{% include "AdminHeader.html"%}
+
+{%if user %}
+<html>
+<head>
+    <title>Customer Reviews</title>
+    <style>
+        .review-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .review-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Customer Reviews</h1>
+
+    <div class="review-container">
+        {% for review in reviews %}
+            <div class="review-card">
+                <h3><i class="fa-solid fa-circle-user"></i>{{ review[3] }}</h3>
+                <p><strong>Rating:</strong> {{ review[1] }} </p>
+                <p><strong>Comment:</strong> {{ review[2] }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <br>
+</body>
+</html>
+
+{% endif %}

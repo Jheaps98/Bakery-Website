@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Cronton Lane Bakery</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #d35400;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .textnotes {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+{% include 'header.html' %}
+
+
+    {% if user %}
+    <div class="container"> 
+        <h1>Thankyou, {{user}}</h1>
+        <h2>Items in Your Cart</h2>
+    
+        {% if cart %}
+            <ul>
+                {% for item in cart %}
+                    <li>{{ item.name }} - {{ item.price }} </li>
+                    
+                    <br><br>
+                {% endfor %}
+            </ul>
+        <p><strong>Ready to complete your order {{user}}?</strong></p>
+        <form class = "textarea" action="/ImportOrder" method="post">
+            <p>Additional Notes?</p>
+            <input name="AddNotes"  class="textnotes" type="text" placeholder="Enter Notes">
+            
+            
+
+   
+        <p>Your total is {{total_price}}</p>
+        <button type="submit"> Confirm Order </button>
+        </form>
+        {% else %}
+            <p>Your cart is empty.</p>
+        {% endif %}
+
+    <p></p>
+
+    <p></p>
+ 
+    <h2>Nearly all set to go!</h2>
+</div>
+{% endif %}
+
+</body>
+</html>

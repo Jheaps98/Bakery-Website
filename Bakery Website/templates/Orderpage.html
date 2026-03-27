@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Page</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .order-card {
+            display: flex; 
+            align-items: center;
+            gap: 20px; 
+            padding: 10px;
+            border: 1px solid #ddd;
+            background: #fff;
+            margin-bottom: 15px;
+            border-radius: 8px;
+
+        }
+        .nonorder-card {
+            display: flex; 
+            align-items: center;
+            gap: 20px; 
+            padding: 10px;
+            border: 1px solid #ddd;
+            background: #fff;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            opacity: 50%;
+        }
+        .order-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 5px;
+        }
+        .order-details {
+            flex-grow: 1; 
+        }
+        .nonorder-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+{% include 'header.html' %}
+
+{% if user %}
+    <div class="container">
+        <h1>Welcome, {{ user }}!</h1>
+        <h2>Choose Your Favorite Items</h2>
+
+        <form method="POST">
+            {% for item in menu %}
+                {%if item.Buyable == "Y"%}
+                <div class="order-card">
+                    <img src="{{ item.image }}" alt="{{ item.name }}" width="150" height="150">
+                    <div class="order-details">
+                        <h3>{{ item.name }}</h3>
+                        <p>{{ item.description }}</p>
+                        <p><strong>Price:</strong> {{ item.price }}</p>
+                        <button type="submit" name="food_item" value="{{ item.name }}">Add to Cart</button>
+                    </div>
+                </div>
+                {%else%}
+                <div class="nonorder-card">
+                    <img src="{{ item.image }}" alt="{{ item.name }}" width="150" height="150">
+                    <div class="order-details">
+                        <h3>{{ item.name }}</h3>
+                        <p>{{ item.description }}</p>
+                        <p><strong>Price:</strong> {{ item.price }}</p>
+                        <button type="submit" name="food_item" value="{{ item.name }}" disabled>Out Of Stock</button>
+                    </div>
+                </div>
+
+                {%endif%}
+            {% endfor %}
+        </form>
+    </div>
+{% endif %}
+
+
+</body>
+</html>

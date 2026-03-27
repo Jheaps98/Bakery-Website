@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Cronton Lane Bakery</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #d35400;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+{% include 'AdminHeader.html' %}
+
+{% if user %}
+<form class = "EditStock" action ="/EditStock/{{product}}" method="POST">
+    <p>Product Name?</p>
+    <input type="text" id="Product_Name" name="Product_Name" value="{{product}}" disabled="disabled">
+    <p>Change Amount</p>
+    <input type="integer" id="Amount_in_stock" name="Amount_in_stock">
+
+
+</br>
+</br>
+
+    <input type="submit" value="submit" id="submit">
+</form>
+</div>
+</body>
+{% endif %}
+
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}

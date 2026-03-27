@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+{% include 'header.html' %}
+
+
+{% if user %}
+    <div class="container"> 
+        <h1>Checkout</h1>
+        <h2>Items in Your Cart</h2>
+    
+        {% if cart %}
+            <ul>
+                {% for item in cart %}
+                    <li>{{ item.name }} - {{ item.price }}</li>
+                    <form action="/Removeitem/{{ item.name }}" method="POST">
+                    <button type="submit" class="trash-button">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                    </form>
+
+
+                    <br><br>
+
+                {% endfor %}
+                
+            </ul>
+
+            <button><a href="/AddOrder">Proceed to payment</a></button>
+            
+        {% else %}
+            <p>Your cart is empty.</p>
+        {% endif %}
+    </div>
+{% endif %}
+
+</body>
+</html>

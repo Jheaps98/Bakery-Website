@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Cronton Lane Bakery</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #d35400;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+{% include 'header.html' %}
+
+{% if user %}
+<div class="container">
+    <h1>Welcome, {{ user }} to Cronton Bakery</h1>
+    <h2>Learn More About Our Story</h2>
+
+    <p><strong>Welcome to Cronton Lane Bakery - A Family Tradition Since 2012</strong></p>
+
+    <p>At Cronton Lane Bakery, we take pride in being a beloved family-run business serving the heart of Cronton, Merseyside, since 2012. Our bakery has grown to become a cornerstone of the local community, offering freshly baked goods made with passion and care. Whether you're a loyal local customer or a student from Cronton Sixth Form College, where over 2,000 pupils study each year, we are here to provide you with delicious treats that feel like home.</p>
+
+    <p>But we're more than just a bakery—we're a brand that fuels champions. For two seasons, we've proudly partnered with Widnes Vikings and their nutritionists to craft healthy, flavorful wraps that support their training regime. This collaboration has not only been beneficial for the team but has also helped spread our love for good food beyond Cronton, reaching new customers through social media and promotional campaigns.</p>
+
+    <p>From our bakery shelves to the rugby fields, our mission remains the same: delivering quality, flavor, and warmth in every bite. Whether you're here for a hearty breakfast, a mid-day snack, or a nutritious meal, we invite you to be part of our growing family.</p>
+
+    <h2>Come visit us and taste the tradition!</h2>
+</div>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+{%include 'header.html'%}
+<div class="header">
+<h2>Registrating a User</h2>
+<p>Fill in this form to register to use the system.</p>
+<form class = "addUser" action =" /Register" method="post">
+    <p>Username</p>
+    <input type="text" id="UserName" name="UserName">
+    <p>Password</p>
+    <input type="password" id="Password" name="Password">
+    <p>Firstname</p>
+    <input type="text" id="Firstname" name="Firstname">
+    <p>Surname</p>
+    <input type="text" id="Surname" name="Surname">
+
+    <p>Admin</p>
+    <select id="Admin" name="Admin">
+    <option value="Y">Yes</option>
+    <option value="N">No</option>
+    </select>
+</br>
+</br>
+
+    <input type="submit" value="submit" id="submit">
+</form>
+</div>
+</body>
+
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
